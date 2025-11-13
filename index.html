@@ -1,0 +1,546 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Furama Collection QR Links</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Source+Sans+3:wght@300;400;600&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --deep-teal: #0b3a42;
+        --mid-teal: #14505a;
+        --gold: #b6893f;
+        --champagne: #f7f2e9;
+        --sand: #e7dcc8;
+        --text-body: #2c2c2c;
+        --max-width: 1100px;
+        font-size: 16px;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        font-family: "Source Sans 3", "Segoe UI", sans-serif;
+        color: var(--text-body);
+        background-color: var(--champagne);
+      }
+
+      header {
+        background: linear-gradient(160deg, rgba(11, 58, 66, 0.95), rgba(20, 80, 90, 0.8)),
+          url("https://images.unsplash.com/photo-1512453979798-5ea266f8880c?auto=format&fit=crop&w=1400&q=80")
+            center/cover no-repeat;
+        color: #fff;
+        text-align: center;
+        padding: 5rem 1rem 6rem;
+        position: relative;
+      }
+
+      header::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(180deg, rgba(11, 58, 66, 0.6), rgba(11, 58, 66, 0.95));
+        z-index: 0;
+      }
+
+      .hero-content {
+        position: relative;
+        z-index: 1;
+        max-width: var(--max-width);
+        margin: 0 auto;
+      }
+
+      .hero-badge {
+        display: inline-block;
+        letter-spacing: 0.3rem;
+        text-transform: uppercase;
+        font-size: 0.75rem;
+        font-weight: 600;
+        color: var(--gold);
+        background: rgba(255, 255, 255, 0.1);
+        border: 1px solid rgba(182, 137, 63, 0.4);
+        padding: 0.35rem 1.25rem;
+        border-radius: 999px;
+        margin-bottom: 1.5rem;
+      }
+
+      h1 {
+        font-family: "Playfair Display", serif;
+        font-size: clamp(2.25rem, 4vw, 3.2rem);
+        font-weight: 600;
+        letter-spacing: 0.04em;
+        margin: 0 0 1.25rem;
+      }
+
+      .hero-subtitle {
+        max-width: 750px;
+        margin: 0 auto;
+        font-size: 1.05rem;
+        line-height: 1.7;
+        color: rgba(255, 255, 255, 0.88);
+      }
+
+      main {
+        max-width: var(--max-width);
+        margin: -4rem auto 3rem;
+        padding: 0 1.5rem 3rem;
+        position: relative;
+        z-index: 2;
+      }
+
+      .cards {
+        display: grid;
+        gap: 2.25rem;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      }
+
+      .card {
+        background: linear-gradient(180deg, rgba(255, 255, 255, 0.94), rgba(247, 242, 233, 0.9));
+        border-radius: 14px;
+        box-shadow: 0 18px 45px rgba(12, 45, 51, 0.1);
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+        height: 420px;
+        transition: transform 0.35s ease, box-shadow 0.35s ease;
+      }
+
+      .card:hover {
+        transform: translateY(-6px);
+        box-shadow: 0 28px 52px rgba(10, 40, 46, 0.18);
+      }
+
+      .card-media {
+        position: relative;
+        height: 180px;
+        background: linear-gradient(160deg, rgba(247, 242, 233, 0.9), rgba(231, 220, 200, 0.6));
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+      }
+
+      .card-body {
+        flex: 1;
+        gap: 1rem;
+        padding: 1.75rem 1.75rem 1.75rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+        text-align: center;
+      }
+
+      .card-copy {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        gap: 0.5rem;
+        position: relative;
+      }
+
+      .card h2 {
+        font-family: "Playfair Display", serif;
+        font-size: 1.45rem;
+        color: var(--deep-teal);
+        margin: 0;
+        letter-spacing: 0.02em;
+      }
+
+      .card p {
+        margin: 0;
+        line-height: 1.6;
+        color: rgba(16, 46, 52, 0.85);
+      }
+
+      .card-copy::after {
+        content: "";
+        width: 46px;
+        height: 3px;
+        border-radius: 999px;
+        background: linear-gradient(120deg, rgba(182, 137, 63, 0.65), rgba(204, 160, 90, 0.35));
+        margin: 0.4rem auto 0;
+      }
+
+      .qr-wrapper {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        gap: 1.25rem;
+        align-items: center;
+        border-top: 1px solid rgba(11, 58, 66, 0.08);
+        padding-top: 1.4rem;
+      }
+
+      .qr-visual {
+        display: flex;
+        flex-direction: row;
+        gap: 1.1rem;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .qr-visual .qr-code {
+        width: 150px;
+        height: 150px;
+        object-fit: contain;
+        border: 1px solid rgba(182, 137, 63, 0.2);
+        border-radius: 12px;
+        background-color: #fff;
+        box-shadow: 0 10px 25px rgba(12, 45, 51, 0.08);
+      }
+
+      .qr-visual .qr-brand {
+        width: 80px;
+        height: 80px;
+        border-radius: 20px;
+        border: 1px solid rgba(11, 58, 66, 0.08);
+        background: #fff;
+        box-shadow: 0 8px 20px rgba(12, 45, 51, 0.1);
+        object-fit: contain;
+        padding: 0.6rem;
+      }
+
+      .qr-meta {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 0.75rem;
+      }
+
+      .qr-meta span {
+        display: block;
+        font-size: 0.85rem;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+        color: rgba(11, 58, 66, 0.65);
+        margin-bottom: 0.5rem;
+      }
+
+      .qr-meta a {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        padding: 0.65rem 1.1rem;
+        border-radius: 8px;
+        text-decoration: none;
+        background: linear-gradient(120deg, #b6893f, #cfa55b);
+        color: #ffffff;
+        font-weight: 600;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        box-shadow: 0 10px 20px rgba(182, 137, 63, 0.25);
+      }
+
+      .qr-meta a svg {
+        width: 16px;
+        height: 16px;
+        fill: currentColor;
+      }
+
+      .qr-meta a:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 18px 32px rgba(182, 137, 63, 0.25);
+      }
+
+      footer {
+        text-align: center;
+        padding: 2.5rem 1.5rem 3.5rem;
+        background: linear-gradient(120deg, rgba(11, 58, 66, 0.95), rgba(20, 80, 90, 0.85));
+        color: rgba(255, 255, 255, 0.78);
+      }
+
+      footer strong {
+        color: #fff;
+        letter-spacing: 0.2em;
+        text-transform: uppercase;
+        font-size: 0.8rem;
+        display: block;
+        margin-bottom: 0.75rem;
+      }
+
+      footer p {
+        margin: 0.3rem 0;
+      }
+
+      @media (max-width: 640px) {
+        header {
+          padding: 4rem 1rem;
+        }
+
+        main {
+          margin: -3rem auto 2.5rem;
+          padding: 0 1rem 2.5rem;
+        }
+
+        .card-body {
+          padding: 1.5rem 1.5rem 1.75rem;
+        }
+
+        .qr-wrapper {
+          align-items: stretch;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="hero-content">
+        <span class="hero-badge">Furama Danang</span>
+        <h1>Bộ Sưu Tập Liên Kết & QR tiện dụng</h1>
+        <p class="hero-subtitle">
+          Quét mã hoặc truy cập trực tiếp các thương hiệu thuộc quần thể Furama Da Nang. Một điểm
+          đến, đa trải nghiệm đẳng cấp dành cho kỳ nghỉ và sự kiện của bạn.
+        </p>
+      </div>
+    </header>
+    <main>
+      <section class="cards">
+        <article class="card">
+          <div class="card-media"></div>
+          <div class="card-body">
+            <div class="card-copy">
+              <h2>Furama Resort Danang</h2>
+            </div>
+            <div class="qr-wrapper">
+              <div class="qr-visual">
+                <img
+                  class="qr-code"
+                  src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&margin=8&data=https%3A%2F%2Ffuramavietnam.com%2F"
+                  alt="QR Furama Resort Danang"
+                />
+                <img
+                  class="qr-brand"
+                  src="https://furamavietnam.com/wp-content/uploads/2024/07/Furama-Resort-Danang-Logo-light-ver.svg"
+                  alt="Furama Resort Danang Logo"
+                />
+              </div>
+              <div class="qr-meta">
+                <span>Truy cập</span>
+                <a href="https://furamavietnam.com/" target="_blank" rel="noopener noreferrer">
+                  Khám phá ngay
+                  <svg viewBox="0 0 24 24" aria-hidden="true">
+                    <path
+                      d="M13 5h6a1 1 0 0 1 1 1v6h-2V8.414l-9.293 9.293-1.414-1.414L16.586 7H13V5Z"
+                    />
+                    <path
+                      d="M5 7h6v2H7v8h8v-4h2v5a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V8a1 1 0 0 1 1-1Z"
+                    />
+                  </svg>
+                </a>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="card-media"></div>
+          <div class="card-body">
+            <div class="card-copy">
+              <h2>Furama Villas</h2>
+            </div>
+            <div class="qr-wrapper">
+              <div class="qr-visual">
+                <img
+                  class="qr-code"
+                  src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&margin=8&data=https%3A%2F%2Ffuramavillasdanang.com%2F"
+                  alt="QR Furama Villas"
+                />
+                <img
+                  class="qr-brand"
+                  src="https://furamavillasdanang.com/wp-content/uploads/2023/10/Resize_Untitled-1.webp"
+                  alt="Furama Villas"
+                />
+              </div>
+              <div class="qr-meta">
+                <span>Truy cập</span>
+                <a
+                  href="https://furamavillasdanang.com/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Đặt villa
+                  <svg viewBox="0 0 24 24" aria-hidden="true">
+                    <path
+                      d="M13 5h6a1 1 0 0 1 1 1v6h-2V8.414l-9.293 9.293-1.414-1.414L16.586 7H13V5Z"
+                    />
+                    <path
+                      d="M5 7h6v2H7v8h8v-4h2v5a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V8a1 1 0 0 1 1-1Z"
+                    />
+                  </svg>
+                </a>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="card-media"></div>
+          <div class="card-body">
+            <div class="card-copy">
+              <h2>Ariyana Convention Centre (ACC)</h2>
+            </div>
+            <div class="qr-wrapper">
+              <div class="qr-visual">
+                <img
+                  class="qr-code"
+                  src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&margin=8&data=https%3A%2F%2Fariyanacentre.com%2F"
+                  alt="QR Ariyana Convention Centre"
+                />
+                <img
+                  class="qr-brand"
+                  src="https://ariyanacentre.com/wp-content/uploads/2016/03/logo.png"
+                  alt="Ariyana Convention Centre Logo"
+                />
+              </div>
+              <div class="qr-meta">
+                <span>Truy cập</span>
+                <a href="https://ariyanacentre.com/" target="_blank" rel="noopener noreferrer">
+                  Tham khảo sự kiện
+                  <svg viewBox="0 0 24 24" aria-hidden="true">
+                    <path
+                      d="M13 5h6a1 1 0 0 1 1 1v6h-2V8.414l-9.293 9.293-1.414-1.414L16.586 7H13V5Z"
+                    />
+                    <path
+                      d="M5 7h6v2H7v8h8v-4h2v5a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V8a1 1 0 0 1 1-1Z"
+                    />
+                  </svg>
+                </a>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="card-media"></div>
+          <div class="card-body">
+            <div class="card-copy">
+              <h2>Furama Culinary World</h2>
+            </div>
+            <div class="qr-wrapper">
+              <div class="qr-visual">
+                <img
+                  class="qr-code"
+                  src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&margin=8&data=https%3A%2F%2Ffuramavietnam.com%2Fculinary%2F"
+                  alt="QR Furama Culinary World"
+                />
+                <img
+                  class="qr-brand"
+                  src="https://furamavietnam.com/wp-content/uploads/2018/04/dining-at-furama-resort-danang.jpg"
+                  alt="Furama Culinary World"
+                />
+              </div>
+              <div class="qr-meta">
+                <span>Truy cập</span>
+                <a href="https://furamavietnam.com/culinary/" target="_blank" rel="noopener noreferrer">
+                  Đặt bàn ngay
+                  <svg viewBox="0 0 24 24" aria-hidden="true">
+                    <path
+                      d="M13 5h6a1 1 0 0 1 1 1v6h-2V8.414l-9.293 9.293-1.414-1.414L16.586 7H13V5Z"
+                    />
+                    <path
+                      d="M5 7h6v2H7v8h8v-4h2v5a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V8a1 1 0 0 1 1-1Z"
+                    />
+                  </svg>
+                </a>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="card-media"></div>
+          <div class="card-body">
+            <div class="card-copy">
+              <h2>V-Senses Spa &amp; Wellness</h2>
+            </div>
+            <div class="qr-wrapper">
+              <div class="qr-visual">
+                <img
+                  class="qr-code"
+                  src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&margin=8&data=https%3A%2F%2Fvsensesvietnam.com%2F"
+                  alt="QR V-Senses Spa"
+                />
+                <img
+                  class="qr-brand"
+                  src="https://vsensesvietnam.com/wp-content/uploads/2023/02/V-Senses-Wellness-Spa-Logo.png"
+                  alt="V-Senses Spa Logo"
+                />
+              </div>
+              <div class="qr-meta">
+                <span>Truy cập</span>
+                <a
+                  href="https://vsensesvietnam.com/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Đặt lịch spa
+                  <svg viewBox="0 0 24 24" aria-hidden="true">
+                    <path
+                      d="M13 5h6a1 1 0 0 1 1 1v6h-2V8.414l-9.293 9.293-1.414-1.414L16.586 7H13V5Z"
+                    />
+                    <path
+                      d="M5 7h6v2H7v8h8v-4h2v5a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V8a1 1 0 0 1 1-1Z"
+                    />
+                  </svg>
+                </a>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="card-media"></div>
+          <div class="card-body">
+            <div class="card-copy">
+              <h2>Horecfex</h2>
+            </div>
+            <div class="qr-wrapper">
+              <div class="qr-visual">
+                <img
+                  class="qr-code"
+                  src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&margin=8&data=https%3A%2F%2Fhorecfex.com%2F"
+                  alt="QR Horecfex"
+                />
+                <img
+                  class="qr-brand"
+                  src="https://horecfex.com/wp-content/uploads/2025/06/Horecfex-logo-footer-2.svg"
+                  alt="Horecfex Logo"
+                />
+              </div>
+              <div class="qr-meta">
+                <span>Truy cập</span>
+                <a href="https://horecfex.com/" target="_blank" rel="noopener noreferrer">
+                  Tìm hiểu thêm
+                  <svg viewBox="0 0 24 24" aria-hidden="true">
+                    <path
+                      d="M13 5h6a1 1 0 0 1 1 1v6h-2V8.414l-9.293 9.293-1.414-1.414L16.586 7H13V5Z"
+                    />
+                    <path
+                      d="M5 7h6v2H7v8h8v-4h2v5a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V8a1 1 0 0 1 1-1Z"
+                    />
+                  </svg>
+                </a>
+              </div>
+            </div>
+          </div>
+        </article>
+      </section>
+    </main>
+    <footer>
+      <strong>Furama Danang Collection</strong>
+      <p>103 - 105 Võ Nguyên Giáp, Quận Ngũ Hành Sơn, TP. Đà Nẵng, Việt Nam</p>
+      <p>Email: reservation@furamavietnam.com · Tel: 84-236-3847 333/888</p>
+    </footer>
+  </body>
+</html>
+
+
