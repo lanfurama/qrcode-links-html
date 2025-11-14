@@ -105,13 +105,13 @@
       }
 
       .card {
-        background: linear-gradient(180deg, rgba(255, 255, 255, 0.98), rgba(250, 245, 238, 0.95));
+        background: #ffffff;
         border: none;
         border-radius: 12px;
         box-shadow: 0 4px 20px rgba(12, 45, 51, 0.12), 0 2px 8px rgba(201, 169, 97, 0.08);
         overflow: hidden;
         display: grid;
-        grid-template-rows: auto 180px auto auto;
+        grid-template-rows: minmax(0, 4.5rem) 180px auto auto;
         height: auto;
         transition: transform 0.35s ease, box-shadow 0.35s ease;
       }
@@ -180,13 +180,14 @@
 
 
       .card-title {
-        padding: 1.25rem 1.25rem 1rem;
+        padding: 0.9rem 1rem 0.75rem;
         text-align: center;
         background: linear-gradient(180deg, rgba(255, 255, 255, 0.95), rgba(250, 245, 238, 0.85));
         display: flex;
         align-items: center;
         justify-content: center;
         min-height: 0;
+        max-height: 4.5rem;
         overflow: hidden;
         order: 1;
       }
@@ -211,7 +212,7 @@
       }
 
       .card-button {
-        padding: 1rem 1.25rem 1.25rem;
+        padding: 0.75rem 1rem 0.9rem;
         display: flex;
         align-items: center;
         justify-content: space-between;
@@ -291,9 +292,10 @@
 
         .card {
           height: auto;
-          grid-template-rows: auto 160px auto auto;
+          grid-template-rows: minmax(0, 4rem) 160px auto auto;
           border-radius: 6px;
           border: none;
+          background: #ffffff;
         }
 
         .card-logo-container {
@@ -334,7 +336,8 @@
         }
 
         .card-title {
-          padding: 0.85rem 1rem;
+          padding: 0.65rem 0.85rem;
+          max-height: 4rem;
         }
 
         .card-title h2 {
@@ -344,7 +347,7 @@
         }
 
         .card-button {
-          padding: 0.9rem 1.1rem 1.1rem;
+          padding: 0.7rem 0.9rem 0.85rem;
         }
 
         .card-button a {
@@ -383,8 +386,9 @@
           border: none;
           border-radius: 12px;
           box-shadow: 0 4px 20px rgba(12, 45, 51, 0.12), 0 2px 8px rgba(201, 169, 97, 0.08);
-          grid-template-rows: auto 180px auto auto;
+          grid-template-rows: minmax(0, 5rem) 180px auto auto;
           height: auto;
+          background: #ffffff;
         }
 
         .card-media {
@@ -398,7 +402,8 @@
         }
 
         .card-title {
-          padding: 0.9rem 1.25rem;
+          padding: 0.75rem 1rem;
+          max-height: 5rem;
         }
 
         .card-title h2 {
@@ -408,7 +413,7 @@
         }
 
         .card-button {
-          padding: 1rem 1.5rem 1.5rem;
+          padding: 0.85rem 1.25rem 1.1rem;
         }
 
         .card-button a {
@@ -474,11 +479,13 @@
             <img
               src="assets/furama-resort-bg.png"
               alt="Furama Resort Danang"
+              loading="lazy"
             />
             <img
               class="qr-code"
               src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&margin=8&data=https%3A%2F%2Ffuramavietnam.com%2F"
               alt="QR Furama Resort Danang"
+              loading="lazy"
             />
           </div>
           <div class="card-button">
@@ -486,6 +493,7 @@
               class="card-logo"
               src="assets/furama-resort.png"
               alt="Furama Resort Danang Logo"
+              loading="lazy"
             />
             <a href="https://furamavietnam.com/" target="_blank" rel="noopener noreferrer">
               Explore Now
@@ -509,11 +517,13 @@
             <img
               src="assets/furama-villas-bg.jpg"
               alt="Furama Villas"
+              loading="lazy"
             />
             <img
               class="qr-code"
               src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&margin=8&data=https%3A%2F%2Ffuramavillasdanang.com%2F"
               alt="QR Furama Villas"
+              loading="lazy"
             />
           </div>
           <div class="card-button">
@@ -521,6 +531,7 @@
               class="card-logo"
               src="assets/furama-villas.png"
               alt="Furama Villas Logo"
+              loading="lazy"
             />
             <a
               href="https://furamavillasdanang.com/"
@@ -548,11 +559,13 @@
             <img
               src="assets/acc-bg.jpg"
               alt="Ariyana Convention Centre"
+              loading="lazy"
             />
             <img
               class="qr-code"
               src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&margin=8&data=https%3A%2F%2Fariyanacentre.com%2F"
               alt="QR Ariyana Convention Centre"
+              loading="lazy"
             />
           </div>
           <div class="card-button">
@@ -560,6 +573,7 @@
               class="card-logo"
               src="assets/Ariyana Convention Centre Danang logo.png"
               alt="Ariyana Convention Centre Logo"
+              loading="lazy"
             />
             <a href="https://ariyanacentre.com/" target="_blank" rel="noopener noreferrer">
               Explore Now
@@ -583,11 +597,13 @@
             <img
               src="assets/furama-culinary-bg.jpg"
               alt="Furama Culinary World"
+              loading="lazy"
             />
             <img
               class="qr-code"
               src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&margin=8&data=https%3A%2F%2Ffuramavietnam.com%2Fculinary%2F"
               alt="QR Furama Culinary World"
+              loading="lazy"
             />
           </div>
           <div class="card-button">
@@ -595,6 +611,7 @@
               class="card-logo"
               src="assets/furama culinary.png"
               alt="Furama Culinary World Logo"
+              loading="lazy"
             />
             <a href="https://furamavietnam.com/culinary/" target="_blank" rel="noopener noreferrer">
               Explore Now
@@ -618,11 +635,13 @@
             <img
               src="assets/vsense-spa-bg.jpg"
               alt="V-Senses Spa & Wellness"
+              loading="lazy"
             />
             <img
               class="qr-code"
               src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&margin=8&data=https%3A%2F%2Fvsensesvietnam.com%2F"
               alt="QR V-Senses Spa"
+              loading="lazy"
             />
           </div>
           <div class="card-button">
@@ -630,6 +649,7 @@
               class="card-logo"
               src="assets/V-SENSE.png"
               alt="V-Senses Spa Logo"
+              loading="lazy"
             />
             <a
               href="https://vsensesvietnam.com/"
@@ -657,11 +677,13 @@
             <img
               src="assets/horecfex-bg.jpg"
               alt="Horecfex"
+              loading="lazy"
             />
             <img
               class="qr-code"
               src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&margin=8&data=https%3A%2F%2Fhorecfex.com%2F"
               alt="QR Horecfex"
+              loading="lazy"
             />
           </div>
           <div class="card-button">
@@ -669,6 +691,7 @@
               class="card-logo"
               src="assets/HorecFex Vietnam@4x.png"
               alt="Horecfex Logo"
+              loading="lazy"
             />
             <a href="https://horecfex.com/" target="_blank" rel="noopener noreferrer">
               Explore Now
